@@ -33,7 +33,7 @@ You can register a task to run any of the following application or file types: W
 ```powershell
 PS C:\> $action = New-ScheduledTaskAction -Execute "Taskmgr.exe"
 PS C:\> $trigger = New-ScheduledTaskTrigger -AtLogon
-PS C:\> $principal = "Contoso\Administrator"
+PS C:\> $principal = New-ScheduledTaskPrincipal -UserId "Contoso\Administrator"
 PS C:\> $settings = New-ScheduledTaskSettingsSet
 PS C:\> $task = New-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -Settings $settings
 PS C:\> Register-ScheduledTask T1 -InputObject $task
